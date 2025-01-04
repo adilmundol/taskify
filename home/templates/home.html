@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify-Homepage</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/hometask.css' %}">
+    <style>
+        /* General styles */
+        
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Welcome to Taskify</h1>
+        <p>Streamline your project workflows, assign tasks, and track progress efficiently.</p>
+        <a href="/login" class="cta-button">Get Started</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="feature-item">
+            <img src="https://img.icons8.com/color/80/project.png" alt="Projects Icon">
+            <h3>Manage Projects</h3>
+            <p>Create and organize multiple projects seamlessly.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/color/80/task.png" alt="Tasks Icon">
+            <h3>Track Tasks</h3>
+            <p>Assign tasks to team members and monitor their status.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/color/80/dashboard-layout.png" alt="Dashboard Icon">
+            <h3>View Dashboard</h3>
+            <p>Get insights into your project's performance with a visual dashboard.</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about">
+        <h2>Why Choose Our Tool?</h2>
+        <p>
+            Our Taskify Tool is designed to make your workflow simple and efficient. 
+            Whether you are a team leader or an individual contributor, our intuitive interface ensures a seamless experience.
+        </p>
+        <p>Stay organized, save time, and achieve your goals faster!</p>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 Taskify. All Rights Reserved. | <a href="https://github.com/adilmundol">Contact Us</a></p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

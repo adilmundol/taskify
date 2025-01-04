@@ -1,0 +1,194 @@
+/* Custom styles */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: #343a40;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.profile-name {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.intro-section {
+    background: linear-gradient(135deg, #6c63ff, #44c8f5);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.intro-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.intro-section p {
+    font-size: 18px;
+    margin: 10px 0 0;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.project-card,
+.task-card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover,
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.priority {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.priority-high {
+    background-color: #dc3545;
+}
+
+.priority-medium {
+    background-color: #ffc107;
+    color: #343a40;
+}
+
+.priority-low {
+    background-color: #28a745;
+}
+
+.status {
+    font-weight: bold;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar h1 {
+        font-size: 22px;
+    }
+
+    .profile-section {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .intro-section h2 {
+        font-size: 32px;
+    }
+
+    .intro-section p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card,
+    .task-card {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .intro-section h2 {
+        font-size: 28px;
+    }
+
+    .intro-section p {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar h1 {
+        margin-bottom: 10px;
+    }
+
+    .profile-section {
+        justify-content: center;
+    }
+
+    .intro-section h2 {
+        font-size: 24px;
+    }
+
+    .intro-section p {
+        font-size: 12px;
+    }
+
+    .project-card,
+    .task-card {
+        font-size: 12px;
+    }
+
+    .priority {
+        font-size: 12px;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

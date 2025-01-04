@@ -1,0 +1,398 @@
+/* General Style */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+/* Logout Container Styling */
+.logout-container {
+    position: absolute; /* Fixed position to keep it at the top */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Logout Button Styling */
+.btn-logout {
+    background-color: #ff4d4d; /* Red background color */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Bold text */
+    display: flex; /* Flexbox for icon alignment */
+    align-items: center; /* Center icon vertically */
+    gap: 8px; /* Space between text and icon */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .logout-container {
+        top: 10px; /* Reduce distance from the top */
+        right: 10px; /* Reduce distance from the right */
+    }
+
+    .btn-logout {
+        padding: 8px 12px; /* Reduce padding for smaller screens */
+        font-size: 12px; /* Reduce font size for smaller screens */
+        gap: 6px; /* Reduce space between text and icon */
+    }
+}
+
+@media (max-width: 480px) {
+    .logout-container {
+        top: 5px; /* Further reduce distance from the top */
+        right: 5px; /* Further reduce distance from the right */
+    }
+
+    .btn-logout {
+        padding: 6px 10px; /* Further reduce padding for very small screens */
+        font-size: 10px; /* Further reduce font size for very small screens */
+        gap: 4px; /* Further reduce space between text and icon */
+    }
+}
+
+/* Hover Effect for Logout Button */
+.btn-logout:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Container and Heading */
+.container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2C3E50;
+    margin-bottom: 30px;
+}
+
+/* Section Style */
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #2980B9;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Activity Overview Section */
+.activity-overview {
+    margin-bottom: 30px;
+}
+
+.activity-stats {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    flex-wrap: wrap; /* Wrap cards to the next line if needed */
+}
+
+.stat-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1; /* Equal width for all cards */
+    min-width: 200px; /* Minimum width for each card */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 24px;
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+/* User Progress Section */
+.user-progress {
+    margin-bottom: 30px;
+}
+
+.progress-cards {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    flex-wrap: wrap; /* Wrap cards to the next line if needed */
+}
+
+.progress-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1; /* Equal width for all cards */
+    min-width: 250px; /* Minimum width for each card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.progress-card h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.progress-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #1abc9c;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.progress-card p:last-child {
+    font-size: 14px;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+/* Buttons */
+.button-group {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0c96f2;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0cd2e8;
+}
+
+.btn-add-project {
+    background-color: #27ae60;
+}
+
+.btn-add-task {
+    background-color: #f39c12;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Table Style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #2980B9;
+    color: white;
+}
+
+td {
+    background-color: #fff;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+}
+
+.task-card h3 {
+    font-size: 1.6rem;
+    color: #2C3E50;
+}
+
+/* 
+ .task-card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+} */
+
+.project-card:hover, .task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.priority {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.priority-high {
+    background-color: #dc3545;
+}
+
+.priority-medium {
+    background-color: #ffc107;
+    color: #343a40;
+}
+
+.priority-low {
+    background-color: #28a745;
+}
+
+.status {
+    font-weight: bold;
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+
+
+/* General Section Styling */
+.section {
+    margin-bottom: 40px;
+}
+
+/* Flexbox Layout for Project and Task Lists */
+.project-list, .task-list {
+    display: flex; /* Use flexbox to align cards side by side */
+    flex-wrap: wrap; /* Allow wrapping to the next line if space is insufficient */
+    gap: 20px; /* Add spacing between cards */
+}
+
+/* Card Styling for Projects and Tasks */
+.project-card{
+    flex: 0 1 calc(33.33% - 20px); /* Each card takes up 1/3 of the width minus the gap */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+.task-card{
+    flex: 0 1 calc(33.33% - 34px);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover, .task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .project-card, .task-card {
+        flex: 1 1 calc(50% - 20px); /* Each card takes up 1/2 of the width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card, .task-card {
+        flex: 1 1 100%; /* Each card takes up full width on very small screens */
+    }
+}
+
+
+
+/* Task Card */
+.card.task-card {
+    position: relative; /* Required for absolute positioning of the icon */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+/* Notification Icon */
+.notification-icon {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    color: #0099ff; /* Red color for visibility */
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add a hover effect */
+.notification-icon:hover {
+    color: #083fae; /* Brighter red on hover */
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+

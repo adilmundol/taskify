@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/maintask.css' %}">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar d-flex justify-content-between">
+        <h1>Taskify</h1>
+        <div class="profile-section">
+            {% if user.profile.image %}
+                <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="profile-pic">
+            {% else %}
+                <a href="/profile">
+                    <img src="{% static 'images/default-profile.png' %}" alt="Profile Pic" class="profile-pic">
+                </a>
+            {% endif %}
+            <span class="profile-name">{{ user }}</span>
+            <a href="/login" class="btn btn-outline-light btn-sm ms-3">Logout</a>
+        </div>
+    </div>
+
+    <!-- Intro Section -->
+    <div class="intro-section">
+        <h2>Welcome to Taskify</h2>
+        <p>Organize your projects, assign tasks, and boost productivity!</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Display Projects -->
+        <h2 class="mb-4 text-primary">Your Projects</h2>
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <h3 class="text-dark">{{ project.name }}</h3>
+                        <p><strong>Created by:</strong> {{ project.created_by }}</p>
+                        <p><strong>Created on:</strong> {{ project.created_at }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Display Tasks -->
+        {% if user.is_authenticated %}
+            <h2 class="mt-5 mb-4 text-success">Your Tasks</h2>
+            <div class="row">
+                {% for task in tasks %}
+                    <div class="col-md-6">
+                        <a href="/view/{{task.id}}" style="text-decoration: none;">
+                            <div class="card task-card">
+                                <h3 class="text-dark">{{ task.title }}</h3>
+                                <h5 class="text-secondary">Project: {{ task.project.name }}</h5>
+                                <p><strong>Description:</strong> {{ task.description }}</p>
+                                <p><strong>Assigned to:</strong> {{ task.assigned_to }}</p>
+                                <span class="priority priority-{{ task.priority|lower }}">{{ task.priority }} Priority</span>
+                                <div class="status mt-2">Status: {{ task.status }}</div>
+                            </div>
+                        </a>
+                    </div>
+                {% empty %}
+                    <p class="text-muted">No tasks assigned to you.</p>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-danger">Please <a href="/login" class="text-primary">login</a> to view your tasks.</p>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="color: white;">&copy; 2025 Taskify. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

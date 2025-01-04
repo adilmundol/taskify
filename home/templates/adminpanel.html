@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify-Admin Panel</title>
+    <link rel="stylesheet" href="{% static 'css/adminpanel.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Logout Button -->
+    <div class="logout-container">
+        <a href="/logout" class="btn btn-logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+    </div>
+    <div class="container">
+        <h1 class="page-title">Admin Dashboard</h1>
+
+        <!-- Activity Overview Section -->
+        <div class="section activity-overview">
+            <h2 class="section-title">Activity Overview</h2>
+            <div class="activity-stats">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <p>{{ total_users }}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Users</h3>
+                    <p>{{ active_users }}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Tasks Assigned</h3>
+                    <p>{{ total_tasks }}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Tasks Completed</h3>
+                    <p>{{ completed_tasks }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Progress Section -->
+        <div class="section user-progress">
+            <h2 class="section-title">Users and Their Progress</h2>
+            <div class="progress-cards">
+                {% for user in user_progress %}
+                    <div class="progress-card">
+                        <h3>{{ user.user.username }}</h3>
+                        <p>Tasks Assigned: {{ user.total_tasks }}</p>
+                        <p>Completed Tasks: {{ user.completed_tasks }}</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: {{ user.progress }}%;"></div>
+                        </div>
+                        
+                        <p>{{ user.progress }}% Progress</p>
+                    </div>
+                {% empty %}
+                    <p>No users found.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Buttons for Adding Projects and Tasks -->
+        <div class="button-group">
+            <a href="/add" class="btn btn-add-project">Add Project</a>
+            <a href="/addtask" class="btn btn-add-task">Add Task</a>
+        </div>
+
+        <hr>
+
+        <!-- Projects Section -->
+        <div class="section projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-list">
+                {% for project in projects %}
+                    <div class="card project-card">
+                        <h3>{{ project.name }}</h3>
+                        <p>Created by: {{ project.created_by }}</p>
+                        <p>Created on: {{ project.created_at }}</p>
+                        <div class="button-group">
+                            <a href="/editproject/{{ project.id }}" class="btn">Edit</a>
+                            <a href="/deleteproject/{{ project.id }}" class="btn delete-btn">Delete</a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No projects found.</p>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Tasks Section -->
+        <div class="section tasks">
+            <h2 class="section-title">Tasks</h2>
+            <div class="task-list">
+                {% for task in tasks %}
+                    <div class="card task-card">
+                    <a href="/view/{{task.id}}" style="text-decoration: none;">
+                        <h3>{{ task.project }}</h3>
+                        <h3>{{ task.title }}</h3>
+                        <p>Description: {{ task.description }}</p>
+                        <p>Assigned to: {{ task.assigned_to }}</p>
+                        <span class="priority priority-{{ task.priority|lower }}">{{ task.priority }} Priority</span>
+                        <div class="status">Status: {{ task.status }}</div>
+                        <!-- Notification Icon for Comments -->
+                    {% if comments.exists %}
+                    <div class="notification-icon" title="{{ comments.count }} comments">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                {% endif %}
+                        
+
+                        <div class="button-group">
+                            <a href="/edittask/{{ task.id }}" class="btn">Edit</a>
+                            <a href="/deletetask/{{ task.id }}" class="btn delete-btn">Delete</a>
+                        </div>
+                    </a>
+                    </div>
+                {% empty %}
+                    <p>No tasks found.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
